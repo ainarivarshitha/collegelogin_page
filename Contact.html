@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body{
+        margin: 0;
+        padding: 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        font-family: Arial, sans-serif;
+      }
+      button{
+        font-size: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <p style="font-size: 40px;
+    background: black;
+    color: white;
+    width: 576px;">Peking University, Beijing, China</p>
+    <br />
+    <p style="font-size: 20px;color: hotpink;">Address: China, 100871, Beijing, Yiheyuan Road, 5</p>
+    <p style="font-size: 20px;color: hotpink;">Phone: +86 (10) 627 51 201</p>
+    <p style="font-size: 20px;color: hotpink;">Website: http://www.pku.edu.cn</p>
+    <p style="font-size: 20px;color: hotpink;"> Number of persons: 37</p>
+    <p style="font-size: 20px;color: hotpink;">Number of authors: 21</p>
+    <p style="font-size: 20px;color: hotpink;">Number of publications: 17</p>
+
+    
+    
+    <button onclick="contact()" type="button">go to main</button>
+    
+    <script>
+      window.onload = function () {
+        const imageUrl =
+          "https://png.pngtree.com/thumb_back/fh260/back_our/20190621/ourmid/pngtree-teacher-s-college-classroom-coaching-course-poster-background-image_188494.jpg";
+        document.body.style.backgroundImage = `url('${imageUrl}')`;
+      };
+
+    
+      function contact() {
+        window.location.href = "index.html";
+      }
+    </script>
+  </body>
+</html>

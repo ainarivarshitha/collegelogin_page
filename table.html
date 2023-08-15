@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        
+      
+      #updateUserBtn {
+        display: none;
+      }
+      #addUserBtn {
+        display: block;
+      }
+      button{
+        
+        font-size: 20px;
+      }
+      
+    </style>
+    
+  </head>
+  <body>
+
+    <br><button onclick="updateUser()" type="button" id="updateUserBtn">
+      Update User
+    </button>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Password</th>
+          <th>Confirm Password</th>
+          <th>Delete</th>
+         
+        </tr>
+      </thead>
+      <tbody></tbody>
+      
+    </table>
+    <button onclick="table()">go to main</button>
+    <script>
+        
+        function table(){
+            window.location.href="index.html"
+        }
+        var users=JSON.parse(localStorage.getItem("users"))
+     
+
+      function displayUsers() {
+        document.querySelector("tbody").innerHTML = "";
+        users.forEach((user, i) => {
+          var myTr = document.createElement("tr");
+          for (a in user) {
+            var myTd = document.createElement("td");
+            myTd.innerHTML = user[a];
+            myTr.appendChild(myTd);
+          }
+          var deleteTd = document.createElement("td");
+          var deleteBtn = document.createElement("button");
+          deleteBtn.innerHTML = "Delete User ";
+          deleteBtn.setAttribute("onclick", "deleteUser(" + i + ")");
+          deleteTd.appendChild(deleteBtn);
+          myTr.appendChild(deleteTd);
+          
+        
+          document.querySelector("tbody").appendChild(myTr);
+        });
+      }
+
+      displayUsers();
+
+      function deleteUser(i) {
+        users = users.filter((usr, index) => i !== index);
+        displayUsers(users);
+        console.log("Delete User Called !!");
+      }
+
+     
+    
+      function clearform() {
+        var user = {
+          fname: "",
+          lname: "",
+          email: "",
+          password: "",
+          confirmpass: "",
+        };
+        for (a in user) {
+          document.getElementById(a).value = "";
+        }
+      }
+      
+    </script>
+  </body>
+</html>
